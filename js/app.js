@@ -1,3 +1,52 @@
+const API_URL = 'http://localhost:3005';
+
+// Funktion för att kontrollera query-parametrar och visa felmeddelanden
+function checkForErrorMessage() {
+    const params = new URLSearchParams(window.location.search);
+    const errorMessageElement = document.getElementById('error');
+
+    if (errorMessageElement && params.has('error') && params.get('error') === 'unauthorized') {
+        errorMessageElement.textContent = 'Du måste vara inloggad för att få åtkomst till den skyddade sidan.';
+    }
+}
+
+// Funktion för att kontrollera om användaren är inloggad
+function checkIfLoggedIn() {
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+        // Omdirigera till inloggningssidan med query parameter
+        if (!window.location.search.includes('error=unauthorized')) {
+            window.location.href = '/login.html?error=unauthorized';
+        }
+    } else {
+        // Om token finns, validera den med servern
+        fetch(`${API_URL}/validate`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Token ogiltig');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const protectedMessageElement = document.getElementById('protectedMessage');
+                if (protectedMessageElement) {
+                    protectedMessageElement.innerText = `Välkommen, ${data.username}!`;
+                }
+            })
+            .catch(() => {
+                localStorage.removeItem('jwtToken');
+                if (!window.location.search.includes('error=unauthorized')) {
+                    window.location.href = '/login.html?error=unauthorized?';
+                }
+            });
+    }
+}
+
 // Hantering av registreringsformulär
 document.getElementById('registerForm')?.addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -43,3 +92,11 @@ document.getElementById('loginForm')?.addEventListener('submit', async function 
         document.getElementById('loginResult').innerText = result.error || 'Inloggning misslyckades.';
     }
 });
+
+
+
+if (window.location.pathname === '/login.html') {
+    checkForErrorMessage();
+} else if (window.location.pathname === '/protected.html') {
+    checkIfLoggedIn();
+}

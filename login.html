@@ -7,28 +7,36 @@
         <title>Webbplats med Fetch API och JWT</title>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
               rel="stylesheet">
+
     </head>
-    <nav class="navbar">
-        <a href="protected.html" class="site_name">Skyddad</a>
-        <body>
-            <div>
-                <div id="error" class="error_message">
+
+    <body>
+        <nav class="navbar">
+            <a href="protected.html" class="site_name">Skyddad</a>
+
+        </nav>
+        <div>
+            <div id="error" class="error_message">
+                <div id="message" class="not_message">
                     <p></p>
                     <form id="loginForm">
-                        <label for="username">Användarnamn:</label>
+                        <label for="loginUsername">Användarnamn:</label>
                         <input type="text" id="loginUsername" required>
                         <br>
-                        <label for="password">Lösenord:</label>
+                        <label for="loginPassword">Lösenord:</label>
                         <input type="password" id="loginPassword" required>
                         <br>
                         <button type="submit">Logga in</button>
                     </form>
-                    <p id="loginResult"></p>
+
                 </div>
                 <p></p> Saknar du Inlogg? <a href="index.html">reg</a>
+                <p id="loginResult"></p>
             </div>
-            </div>
-            <div id="protectedContent" class="canvas">
-            </div>
-        </body>
+        </div>
+        <div id="protectedContent" class="canvas">
+        </div>
+        <script src="js/app.js"></script>
+    </body>
+
 </html>
