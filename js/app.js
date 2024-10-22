@@ -1,3 +1,5 @@
+// KLIENT-SIDA
+
 const API_URL = 'http://localhost:3005';
 
 // Funktion för att kontrollera query-parametrar och visa felmeddelanden
