@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Webbplats med Fetch API och JWT</title>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
-              rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webbplats med Fetch API och JWT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/styles.scss">
+</head>
 
-    </head>
+<body>
+    <nav class="navbar">
+        <a href="protected.html" class="site_name">SkYDDAD</a>
+        <a href="login.html" class="site_name">LOGIN</a>
+        <a href="index.html" class="site_name">REGISTRERA</a>
+    </nav>
+    <div>
 
-    <body>
-        <nav class="navbar">
-            <a href="protected.html" class="site_name">Skyddad</a>
 
-        </nav>
-        <div>
-            <div id="error" class="error_message">
-                <div id="message" class="not_message">
-                    <p></p>
-                    <form id="loginForm">
-                        <label for="loginUsername">Användarnamn:</label>
-                        <input type="text" id="loginUsername" required>
-                        <br>
-                        <label for="loginPassword">Lösenord:</label>
-                        <input type="password" id="loginPassword" required>
-                        <br>
-                        <button type="submit">Logga in</button>
-                    </form>
-
-                </div>
-                <p></p> Saknar du Inlogg? <a href="index.html">reg</a>
-                <p id="loginResult"></p>
+        <form id="loginForm">
+            <label for="loginUsername">Användarnamn:</label>
+            <input type="text" id="loginUsername" required>
+            <br>
+            <label for="loginPassword">Lösenord:</label>
+            <input type="password" id="loginPassword" required>
+            <br>
+            <button type="submit">Logga in</button>
+        </form>
+        Saknar du Inlogg? <br> <a href="index.html">registrera</a>
+        <div id="error" class="error_message">
+            <div id="message" class="not_message">
             </div>
+            <p></p>
+
+            <p id="loginResult"></p>
         </div>
-        <div id="protectedContent" class="canvas">
+    </div>
+    <script src="js/app.js"></script>
+    <footer>
+        <div class="logo-container">
+            <img src="img/Asset_5.svg" alt="Logo" class="footer-logo">
         </div>
-        <script src="js/app.js"></script>
-    </body>
+        <button class="theme-toggle" type="button" onclick="toggleTheme()">Byt Tema</button>
+    </footer>
+</body>
 
 </html>

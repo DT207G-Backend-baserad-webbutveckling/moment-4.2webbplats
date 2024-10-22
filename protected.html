@@ -4,13 +4,26 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style/styles.scss">
         <script src="js/app.js"></script>
         <title>Skyddad Sida</title>
     </head>
 
     <body>
+        <nav class="navbar">
+            <a href="protected.html" class="site_name">SkYDDAD</a>
+            <a href="login.html" class="site_name">LOGIN</a>
+            <a href="index.html" class="site_name">REGISTRERA</a>
+        </nav>
         <h1>Skyddad Sida</h1>
         <p id="protectedMessage">Välkommen till den skyddade sidan.</p>
+        <footer>
+            <div class="logo-container">
+                <img src="img/Asset_5.svg" alt="Logo" class="footer-logo">
+            </div>
+            <button class="theme-toggle" type="button" onclick="toggleTheme()">Byt Tema</button>
+        </footer>
     </body>
+
 
 </html>

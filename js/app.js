@@ -95,7 +95,10 @@ document.getElementById('loginForm')?.addEventListener('submit', async function 
     }
 });
 
-
+// Tema-växling
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+}
 
 if (window.location.pathname === '/login.html') {
     checkForErrorMessage();

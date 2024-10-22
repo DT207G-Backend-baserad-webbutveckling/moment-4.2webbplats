@@ -7,16 +7,24 @@
         <title>Webbplats med Fetch API och JWT</title>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
               rel="stylesheet">
+        <link rel="stylesheet" href="style/styles.scss">
 
     </head>
 
     <body>
         <nav class="navbar">
             <a href="protected.html" class="site_name">SkYDDAD</a>
+            <a href="login.html" class="site_name">LOGIN</a>
+            <a href="index.html" class="site_name">REGISTRERA</a>
         </nav>
         <div>
-            <h1>Välkommen till vår webbplats</h1>
 
+
+            <h1>Välkommen till vår webbplats</h1>
+           
+        
+            <!-- Theme Toggle Button -->
+           
             <!-- Registreringsformulär -->
             <div>
                 <h2>Registrera ett konto</h2>
@@ -36,6 +44,12 @@
         <div id="protectedContent" class="canvas">
         </div>
         <script src="js/app.js"></script>
+        <footer>
+            <div class="logo-container">
+                <img src="img/Asset_5.svg" alt="Logo" class="footer-logo">
+            </div>
+            <button class="theme-toggle" type="button" onclick="toggleTheme()">Byt Tema</button>
+        </footer>
     </body>
 
 </html>
